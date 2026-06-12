@@ -5,7 +5,7 @@ This is the data repository for the 2026 CDPH West Nile virus Forecasting Challe
 
 ## Forecasts of Reported West Nile Virus Cases in Select Counties in California
 
-<p align="center"><img src="./media/calRegions.png" alt="WNVCA Logo" width="100%"></p>
+<p align="center"><img src="./media/calRegions.png" alt="WNVCA Logo" width="60%"></p>
 
 * **Dates**: The Challenge Period will begin April 2026 and will run until October 2026. Participants are currently asked to submit forecasts by: *April 30th*, *May 31*, *June 30*, *July 31*, *August 31*, *September 30*, and *October 31* (herein referred to as the Forecast Due Dates). All submissions should include forecasts for all remaining months of 2025 (through December).
 
@@ -18,8 +18,6 @@ To participate in the Challenge, please follow these steps:
  * Have a look at the [mosquito and bird](https://github.com/vectorsurv/ca-wnv-forecasting-challenge/tree/main/2025) data provided by the [VectorSurv](https://barkerlab.ucdavis.edu/vectorsurv-team/) team.
  * Prepare metadata for your model. 
  * Submit forecasts by the deadlines. 
-
-For information on submitting forecasts to this project, please see the [submission instructions](https://github.com/cdphmodeling/wnvca-2025/tree/main/model-output). Participating teams provide their forecasts in a quantile format that will be evaluated according with the [weighted interval score](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008618). 
 
 ## Data License and Reuse
 
