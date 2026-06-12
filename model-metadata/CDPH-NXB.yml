@@ -1,0 +1,26 @@
+team_name: "California Department of Public Health"
+team_abbr: "CDPH"
+model_name: "Negative Binomial XGBoost Regression"
+model_abbr: "NXB"
+model_version: "1.0"
+model_contributors: [
+  {
+    "name": "Hector M. Sanchez C.",
+    "affiliation": "California Department of Public Health",
+    "email": "hector.sanchez-castellanos@cdph.ca.gov"
+  },
+  {
+    "name": "Tomas M. Leon",
+    "affiliation": "California Department of Public Health",
+    "email": "tomas.leon@cdph.ca.gov"
+  }
+]
+website_url: "https://github.com/cdphmodeling/wnvca-2026"
+license: "CC-BY-4.0"
+citation: ""
+team_funding: ""
+designated_model: false
+methods: "XGBoost regressor fitted to predict NB parameters."
+data_inputs: "Historic WNV cases, temperature, precipitation, mosquito counts, dead bird reports."
+ensemble_of_models: false
+ensemble_of_hub_models: false
