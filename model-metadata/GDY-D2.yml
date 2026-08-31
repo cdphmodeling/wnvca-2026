@@ -1,0 +1,36 @@
+team_name: "Dyachkov Independent Forecasting"
+team_abbr: "GDY"
+model_name: "Negative binomial with horizon-decayed in-season signal"
+model_abbr: "D2"
+model_version: "1.0"
+model_contributors: [
+  {
+    "name": "Grigoriy Dyachkov",
+    "affiliation": "Independent",
+    "email": "dyachkov.gregory@gmail.com"
+  }
+]
+website_url: ""
+repo_url: ""
+license: "CC-BY-4.0"
+citation: ""
+team_funding: ""
+designated_model: true
+methods: "Negative binomial GLM with month and region fixed effects and a log-population offset, where the in-season case signal is damped exponentially with forecast horizon."
+data_inputs: "Confirmed human West Nile virus cases by county and week of report, CDPH open data portal (data.chhs.ca.gov), 2006-2026, aggregated to the six hub regions and to calendar months. Week-to-month assignment follows the CDPH convention (majority of days in the week; confirmed by CDPH modeling team, Aug 2026). Region population from the 2023 county estimates, used as a log offset. No external surveillance inputs."
+methods_long: >
+  As the in-season negative binomial model - month and region fixed effects, log-population
+  offset, training sample restricted to the forecasting situation itself, predictor gated at
+  origin month >= 8 - with one measured refinement. The information in year-to-date cases does
+  not carry equally to every horizon: fitted on historical origins, the coefficient falls from
+  about 0.6 one month ahead to 0.25-0.32 four months ahead. The predictor is therefore entered
+  as log1p(year-to-date) multiplied by exp(-lambda * (min(h, 4) - 1)), with the decay rate
+  lambda estimated on the training sample of each origin rather than fixed by hand.
+  The confound between "the signal ages with horizon" and "the signal matters more in September"
+  was resolved before the model was accepted, using the same target month reached from different
+  origins. Unlike the same idea applied to the shape of the distribution, this one survives the
+  control of simply making the model more flexible. Predictive quantiles are the negative
+  binomial quantiles at the fitted mean and dispersion. The model has not been checked on
+  held-out data: the one held-out season was spent on other questions.
+ensemble_of_models: false
+ensemble_of_hub_models: false

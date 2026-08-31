@@ -1,0 +1,35 @@
+team_name: "Dyachkov Independent Forecasting"
+team_abbr: "GDY"
+model_name: "Negative binomial with in-season cases and dead bird surveillance"
+model_abbr: "W1g"
+model_version: "1.0"
+model_contributors: [
+  {
+    "name": "Grigoriy Dyachkov",
+    "affiliation": "Independent",
+    "email": "dyachkov.gregory@gmail.com"
+  }
+]
+website_url: ""
+repo_url: ""
+license: "CC-BY-4.0"
+citation: ""
+team_funding: ""
+designated_model: true
+methods: "As the in-season negative binomial model, plus the shrunken share of dead birds testing positive for WNV in the same region and season."
+data_inputs: "Confirmed human West Nile virus cases by county and week of report, CDPH open data portal (data.chhs.ca.gov), 2006-2026, aggregated to the six hub regions and to calendar months. Week-to-month assignment follows the CDPH convention (majority of days in the week; confirmed by CDPH modeling team, Aug 2026). Region population from the 2023 county estimates, used as a log offset. VectorSurv dead bird surveillance (github.com/vectorsurv/ca-wnv-forecasting-challenge), snapshot 2026-08-15: share of dead birds testing positive over complete months of the current season."
+methods_long: >
+  Identical to the in-season negative binomial model (month and region fixed
+  effects, log-population offset, log1p of year-to-date cases, origin month >= 8),
+  with one added predictor: the share of dead birds testing positive for WNV in the
+  same region, accumulated over complete months of the current season and shrunk
+  towards the statewide mean with a pseudo-count of 50. The share, not the count, is
+  used deliberately: the upstream surveillance history is revised retroactively as
+  agencies join and backfill (up to +97% on historical counts between yearly
+  snapshots), while the positivity share is stable to that revision because a joining
+  agency adds to both numerator and denominator. Only months strictly earlier than the
+  snapshot month enter the feature, because the last month of any snapshot is roughly
+  one third filled. This is the only candidate we tested that improved on held-out
+  data (season 2025) rather than on resampled history.
+ensemble_of_models: false
+ensemble_of_hub_models: false
